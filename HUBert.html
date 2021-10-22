@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>HUBert - Le hub des services numériques de la médiathèque</title>
+<meta charset="UTF-8">
+<!-- Partie créant les liens avec les autres documents -->
+<link rel="icon" type="image/png" href="ressources/favicon.ico"/>
+<!-- en ligne-->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/solid.css" integrity="sha384-9AfJF7pZ+RYk3wXpf8ge6fc3XhPaW3Xl57Qj/mSzPckn9Tu8zJ9qUipWq+/utX20" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/fontawesome.css" integrity="sha384-VoScp22LWX8GkkUAmdkkkj+rz+/r84lmCD6FALIryJxjwBSz6kE6oebSlamQx19e" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/gh/coheractio/jQuery-UI-Dialog-ClickOutside/ui-clickoutside/jquery.ui.dialog-clickoutside.js"></script>
+<!-- hors ligne-->
+<!-- <script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css"/>
+<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.structure.css"/>
+<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.theme.css"/>
+<link rel="stylesheet" href="ressources/fontawesome-free-5.12.0-web/css/fontawesome.css"/>
+<link rel="stylesheet" href="ressources/fontawesome-free-5.12.0-web/css/solid.css"/>
+<script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+<script src="jquery-ui-1.12.1/1.11.1_jquery-ui.min.js"></script>
+<script src="jquery-ui-1.12.1/jquery.ui.dialog-clickoutside.js"></script> -->
+<!-- Sans ce script, dialog ne fonctionnera pas : <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>-->
+<script src="coreFiles/HUBert.js"></script>
+<script src="coreFiles/biblionumber.json.js"></script>
+<script src="coreFiles/random_book.js"></script>
+<link rel="stylesheet" href="coreFiles/HUBert.css"/>
+</head>
+
+<!-- Corps de la page -->
+<body>
+
+<!-- Partie supérieure -->
+<header>
+
+<!-- Division contenant le nom du logiciel et son numéro de version -->
+	<div id ="nomLogiciel">
+	<p  title="v. 0.4.3"><span class="red" style="font-size : 80px;">HUB</span><span class="red" style="font-size : 80px;">ert</span>
+	<br/><span style="font-size: 30px;" class="red">Le hub des services numériques de la médiathèque</span></p>
+	</div>
+
+<!-- Division contenant le logo -->
+	<div id="divLogo">
+	<a href="http://www.bordeaux.archi.fr" target="_blank"><img id="logo" src="ressources/logo_ENSAP_b&r.jpg" title="Site de l'ENSAP Bordeaux"/></a>
+	</div>
+
+<!-- Division contenant l'actualité des données -->
+	<div id="donneesVersionLogiciel">
+		<div id="dateData">
+		<span style="font-size: 16px;">Dernière mise à jour : juin 2020.</span>
+		</div>
+	</div>
+</header>
+
+<!-- Division contenant les liens -->
+<div id="divServices">
+<!-- Début de la grande liste -->
+<ul class="listeNonNum">
+<!-- Liste des services -->
+	<li class="liLink"><i></i><a href="https://www.archires.archi.fr/" target="_blank"><img class="imgListeCarre" src="images/logo_archires.jpg">, catalogue de la bibliothèque et du réseau des ENSA/P</a></li>
+	<li class="liLink"><i></i><a href="../Louise 1.1/Louise.html" target="_blank">Louise, plan pour trouver vos documents dans la médiathèque</a></li>
+	<li class="liLink new" id="randomBook"><i></i><a>Découvrez un document aléatoire !</a></li>
+	<li class="liLink"><i></i><a href="http://www.bordeaux.archi.fr/ecole/ressources/mediatheque/atlas-numerique.html" target="_blank">Atlas numérique situant les travaux d'étudiants et d'enseignants de l'école</a></li>
+	<li class="liLink"><i></i><a href="https://www.sudouest.fr/" target="_blank">Sud Ouest accès premium</a></li>
+	<li class="liLink"><i></i><a href="https://www.kheox.fr/" target="_blank">Kheox abonnement numérique (donne accès au Moniteur)</a></li>
+	<li class="liToggle new" id="liensUtiles" title="Cliquez pour faire apparaître les liens"><i></i>Liste de liens vers des bases de données ou des catalogues utiles pour vous</li>
+<!-- Division contenant les liens utiles -->
+	<div id="liensUtilesListe" class="hidden">
+	<ul class="listeNonNum">
+<!-- Catégorie Pour l'architecture -->
+		<li class="liensCategorie">Pour l'architecture</li>
+		<li class="liLink2"><i></i><a href="http://riba.sirsidynix.net.uk/uhtbin/cgisirsi/?ps=ENgqLiMHrN/MAIN_CAT/X/60/53/X" target="_blank">Le RIBA (Royal Institute of British Architects)</a></li>
+		<li class="liLink2"><i></i><a href="https://www.citedelarchitecture.fr/fr" target="_blank">La cité de l'architecture et du patrimoine</a></li>
+		<li class="liLink2"><i></i><a href="https://archiwebture.citedelarchitecture.fr/" target="_blank">ArchiWebture : inventaires d'archives d'architectes en ligne</a></li>
+		<li class="liLink2"><i></i><a href="https://fra.archinform.net/index.htm" target="_blank">ArchInform, base de données internationale sur l'architecture</a></li>
+		<li class="liLink2"><i></i><a href="https://portaildocumentaire.citedelarchitecture.fr/accueil-ermes.aspx" target="_blank">Bibliothèque numérique de la Cité de l'architecture et du patrimoine</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://www.citedelarchitecture.fr/fr/videos" target="_blank">Les vidéos de la Cité d'Architecture et du patrimoine</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://mediatheque-patrimoine.culture.gouv.fr/decouvrir/expositions-virtuelles" target="_blank">Médiathèque de l'architecture et du patrimoine : expositions virtuelles</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://www.franceculture.fr/architecture" target="_blank">Podcast de France Culture sur l'architecture</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://www.arcenreve.eu/" target="_blank">Arc en rêve, centre d'architecture</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://architecture.mollat.com/" target="_blank">Station architecture, site de Mollat dédié à l'architecture</a></li>
+		<li class="liLink2 new4"><i></i><a href="http://www.archi-material.com/" target="_blank">Archi-material, matériauthèque en ligne</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://www.youtube.com/watch?v=mlxHToLLRCM&list=PLfgCyGhKi3GLy401BVy9Qrc10W4MobHdu&index=2&t=0s" target="_blank">Art et Jeux Vidéo : Architecture par S.E.L.L, Syndicat des éditeurs de logiciels de loisirs</a></li>
+		
+<!-- Catégorie Pour le paysage -->
+		<li class="liensCategorie">Pour le paysage</li>
+		<li class="liLink2"><i></i><a href="http://www.ecole-paysage.fr/site/ensp_fr/centre_documentation.htm" target="_blank">La base de l'Ecole Nationale Supérieure du Paysage</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://www.franceculture.fr/theme/amenagement-du-territoire" target="_blank">Podcast de France Culture sur l'aménagement du territoire</a></li>
+		
+<!-- Catégorie Pour l'urbanisme -->
+		<li class="liensCategorie">Pour l'urbanisme</li>
+		<li class="liLink2"><i></i><a href="http://www.cdu.urbanisme.equipement.gouv.fr/" target="_blank">Le catalogue du CDU et Urbamet</a></li>
+		<li class="liLink2"><i></i><a href="https://www.ramau.archi.fr/" target="_blank">Réseau Activités et Métiers de l'Architecture et de l'Urbanisme -RAMAU-</a></li>
+		<li class="liLink2"><i></i><a href="documentation.aurba.org/alexandrie-7/" target="_blank">La base documentaire de l'agence d'urbanisme Bordeaux métropole Aquitaine</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://www.franceculture.fr/urbanisme" target="_blank">Podcast de France Culture sur l'urbanisme</a></li>
+		
+<!-- Catégorie Atlas et informations géographiques -->
+		<li class="liensCategorie new2">Atlas et informations géographiques</li> 
+		<li class="liLink2"><i></i><a href="http://cnig.gouv.fr/" target="_blank">Site du Conseil national de l'information géographique</a></li>
+		<li class="liLink2"><i></i><a href="http://atlas.patrimoines.culture.fr/atlas/trunk/" target="_blank">Atlas des patrimoines</a></li>
+		<li class="liLink2"><i></i><a href="http://www2.culture.gouv.fr/public/mistral/dapamer_fr?ACTION=NOUVEAU&" target="_blank">Base Mérimée : Immeubles protégés au titre des Monuments Historiques</a></li>
+		<li class="liLink2"><i></i><a href="https://www.cadastre.gouv.fr/scpc/accueil.do" target="_blank">Cadastre en ligne</a></li>
+		<li class="liLink2"><i></i><a href="https://www.insee.fr/fr/information/2017499" target="_blank">Découpage infracommunal - Insee</a></li>
+		<li class="liLink2 new4"><i></i><a href="http://www.cartomundi.fr/site/Axx.aspx?view=A01" target="_blank">CartoMundi – Valorisation en ligne du patrimoine cartographique</a></li>
+		
+<!-- Catégorie Audios et vidéos en ligne -->
+		<li class="liensCategorie new2">Audios et vidéos en ligne</li>
+<!-- Sous-catégorie cours de Audios et vidéos en ligne -->
+		<li class="liensCategorie2">Cours :</li>
+		<li class="liLink2"><i></i><a href="https://www.youtube.com/playlist?list=PLYepylhT7J97lqWTWMw1qwygkCvfrOWDZ" target="_blank">L'écologie appliquée à l'architecture : cours en ligne (par Grégoire Bignier à l'ENSA Paris Val de Seine)</a></li>
+		<li class="liLink2"><i></i><a href="https://www.youtube.com/playlist?list=PLYepylhT7J97IXbnEC_ln9lX-WROww2rV" target="_blank">Ce que l'économie circulaire fait à l'architecture : cours en ligne (par Grégoire Bignier à l'ENSA Paris Val de Seine)</a></li>
+		<li class="liLink2"><i></i><a href="https://www.youtube.com/playlist?list=PLYepylhT7J94d3-ytp-aTnICMpUXFxdcA" target="_blank">Processus de conception : cours en ligne (par Emmanuel Doutriaux et Guillaume Meigneux (et des invités) à l'ENSA Paris Val de Seine)</a></li>
+		<li class="liLink2"><i></i><a href="http://www.versailles.archi.fr/index.php?page=evenements&rubrique=search&theme=26" target="_blank">Architecture et Écologie : MOOC (par Grégoire Bignier à l'ENSA Versailles)</a></li>
+		<li class="liLink2"><i></i><a href="https://www.youtube.com/playlist?list=PLYepylhT7J97Kc-wPBMDsAAjJzL1vNgPB" target="_blank">Cours en ligne de l'ENSA Paris Val de Seine</a></li>
+<!-- Sous-catégorie Conférences et interviews de Audios et vidéos en ligne -->
+		<li class="liensCategorie2">Conférences & interviews :</li>
+		<li class="liLink2"><i></i><a href="https://www.youtube.com/playlist?list=PLYepylhT7J97alkw3vSBDvxFGWJfig5vy" target="_blank">Conférences filmées à l'ENSA Paris Val de Seine</a></li>
+		<li class="liLink2"><i></i><a href="http://www.grenoble.archi.fr/videos/videos-conferences.php" target="_blank">Conférences filmées à l'ENSA Grenoble</a></li>
+		<li class="liLink2"><i></i><a href="http://www.nancy.archi.fr/fr/videos-et-audios.html" target="_blank">Portail des conférences, interviews, vidéos et audios de l'ENSA Nancy</a></li>
+		<li class="liLink2"><i></i><a href="https://media.st-etienne.archi.fr/" target="_blank">Portail des conférences filmées de l'ENSA Saint-Étienne</a></li>
+		<li class="liLink2"><i></i><a href="http://www.strasbourg.archi.fr/replay" target="_blank">Portail des conférences filmées de l'ENSA Strasbourg</a></li>
+		<li class="liLink2"><i></i><a href="http://www.esa-paris.fr/le-portfolio/videos/" target="_blank">Portail des vidéos de l'École spéciale d'architecture</a></li>
+		<li class="liLink2"><i></i><a href="https://www.pavillon-arsenal.com/fr/arsenal-tv/" target="_blank">Portail des vidéos du Pavillon de l'Arsenal</a></li>
+		<li class="liLink2"><i></i><a href="http://www.nancy.archi.fr/fr/videos-et-audios.html" target="_blank">Portail des conférences, interviews, vidéos et audios de l'ENSA Nancy</a></li>
+		<li class="liLink2"><i></i><a href="https://architecture.mollat.com/architecture-videos" target="_blank">Vidéos de la Station architecture, site de Mollat dédié à l'architecture</a></li>
+		<li class="liLink2"><i></i><a href="https://www.youtube.com/watch?v=mlxHToLLRCM&list=PLfgCyGhKi3GLy401BVy9Qrc10W4MobHdu&index=2&t=0s" target="_blank">Art et Jeux Vidéo : Architecture par S.E.L.L, Syndicat des éditeurs de logiciels de loisirs</a></li>
+<!-- Sous-catégorie Podcast de Audios et vidéos en ligne -->
+		<li class="liensCategorie2">Podcast :</li>
+		<li class="liLink2"><i></i><a href="https://www.franceculture.fr/urbanisme" target="_blank">Podcast de France Culture sur l'urbanisme</a></li>
+		<li class="liLink2"><i></i><a href="https://www.franceculture.fr/architecture" target="_blank">Podcast de France Culture sur l'architecture</a></li>
+		<li class="liLink2"><i></i><a href="https://www.franceculture.fr/theme/amenagement-du-territoire" target="_blank">Podcast de France Culture sur l'aménagement du territoire</a></li>
+		<li class="liLink2"><i></i><a href="https://www.mollat.com/podcasts" target="_blank">Podcasts produits par Mollat</a></li>
+		
+<!-- Catégorie Langues -->
+		<li class="liensCategorie new2">Langues</li>
+<!-- Sous-catégorie Portail multilingue de Langues -->
+		<li class="liensCategorie2">Portail multilingue :</li>
+		<li class="liLink2"><i></i><a href="https://www.languageguide.org/fr/" target="_blank">Language Guide - Apprenez le vocabulaire de base de 16 langues</a></li>
+		<li class="liLink2"><i></i><a href="https://www.loecsen.com/fr" target="_blank">Loecsen - Initiation rapide et immersion dans 37 langeus différentes</a></li>
+		<li class="liLink2"><i></i><a href="https://audio-lingua.eu/" target="_blank">AudioLingua - Enregistrements en 12 langues différentes</a></li>
+<!-- Sous-catégorie Européennes de Langues -->
+		<li class="liensCategorie2 new3">Européennes :</li>
+		<li class="liLink2"><i></i><a href="https://www.anglaisfacile.com/" target="_blank">AnglaisFacile.com, cours d'anglais en ligne gratuits</a></li>
+		<li class="liLink2"><i></i><a href="https://www.espagnolfacile.com/" target="_blank">EspagnolFacile.com, cours d'espagnol en ligne gratuits</a></li>
+		<li class="liLink2"><i></i><a href="https://www.allemandfacile.com/" target="_blank">AllemandFacile.com, cours d'allemand en ligne gratuits</a></li>
+		<li class="liLink2"><i></i><a href="https://www.italien-facile.com/" target="_blank">Italien-Facile.com, cours d'italien en ligne gratuits</a></li>
+		<li class="liLink2"><i></i><a href="https://www.nlfacile.com/" target="_blank">NLFacile.com, cours de néerlandais en ligne gratuits</a></li>
+<!-- Sous-catégorie extra-européennes de Langues -->
+		<li class="liensCategorie2">Extra-européennes :</li>
+		<li class="liLink2"><i></i><a href="http://www.ramou.net/le/index.htm" target="_blank">Ramou.net, leçons de chinois</a></li>
+		<li class="liLink2"><i></i><a href="http://www.cctv.com/program/lechinois/02/index.shtml" target="_blank">Vidéos de la Télévision centrale de Chine, riches en informations culturelles</a></li>
+		<li class="liLink2"><i></i><a href="https://www.mesexercices.com/japonais/" target="_blank">MesExercices.com, cours de japonais en ligne gratuits</a></li>
+<!-- Sous-catégorie français de Langues -->
+		<li class="liensCategorie2">Français :</li>
+		<li class="liLink2"><i></i><a href="https://www.francaisfacile.com/" target="_blank">FrançaisFacile.com, cours de français en ligne gratuits</a></li>
+		<li class="liLink2"><i></i><a href="https://www.loecsen.com/en/learn-french" target="_blank">Loecsen - Initiation rapide et immersion</a></li>
+		<li class="liLink2"><i></i><a href="https://www.languageguide.org/french/vocabulary/" target="_blank">Language Guide - Apprenez le vocabulaire de base</a></li>
+		<li class="liLink2"><i></i><a href="http://citim.velay.greta.fr/" target="_blank">Citim, pour l'apprentissage du français du monde du travail</a></li>
+		<li class="liLink2"><i></i><a href="https://www.ccdmd.qc.ca/fr/" target="_blank">Amélioration du français</a></li>
+		<li class="liLink2"><i></i><a href="https://www.ciep.fr/ressources/retrouvez-sourire" target="_blank">Retrouvez le sourire</a></li>
+		<li class="liLink2"><i></i><a href="https://savoirs.rfi.fr/en/apprendre-enseigner" target="_blank">Radio France International</a></li>
+		<li class="liLink2"><i></i><a href="http://voyagesenfrancais.fr/" target="_blank">Voyages en français</a></li>
+		<li class="liLink2"><i></i><a href="https://audio-lingua.eu/spip.php?rubrique1" target="_blank">AudioLingua</a></li>
+		<li class="liLink2"><i></i><a href="https://apprendre.tv5monde.com/fr" target="_blank">TV5 Monde</a></li>
+<!-- Sous-catégorie Français plus avancé de Langues -->
+		<li class="liensCategorie2">Français plus avancé :</li>
+		<li class="liLink2"><i></i><a href="http://www.frenchbyfrench.com/" target="_blank">French by french</a></li>
+		<li class="liLink2"><i></i><a href="https://www.bonjourdefrance.com/" target="_blank">Bonjour de France</a></li>
+		<li class="liLink2"><i></i><a href="http://conjuguons.net/" target="_blank">Conjuguons.net</a></li>
+		<li class="liLink2"><i></i><a href="https://m.bescherelle.com/tous-les-quiz" target="_blank">Bescherelle : Testez-vous !</a></li>
+		
+<!-- Catégorie Plateformes d'apprentissage -->
+		<li class="liensCategorie new2">Plateformes d'apprentissage</li>
+		<li class="liLink2"><i></i><a href="https://www.fun-mooc.fr/" target="_blank">FUN MOOC : France université numérique : formation en ligne ouverte à tous</a></li>
+		<li class="liLink2"><i></i><a href="http://www.sup-numerique.gouv.fr/pid33135/catalogue-de-moocs-cours-en-ligne-ouverts-et-massifs.html?recMot=" target="_blank">Le portail numérique de l'enseignement supérieur</a></li>
+		
+<!-- Catégorie Ressources universitaires -->
+		<li class="liensCategorie">Ressources universitaires</li>
+		<li class="liLink2"><i></i><a href="https://babordplus.u-bordeaux.fr/" target="_blank">La base documentaire de l'université de Bordeaux</a></li>
+		<li class="liLink2"><i></i><a href="http://www.sudoc.abes.fr/" target="_blank">Le catalogue national des bibliothèques universitaires</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://oskar-bordeaux.fr/" target="_blank">OSKAR Bordeaux - Open Science & Knowledge Archive</a></li>
+		<li class="liLink2"><i></i><a href="https://www.persee.fr/" target="_blank">Persée, le site des revues de sciences humaines</a></li>
+		<li class="liLink2"><i></i><a href="https://www.archires.archi.fr/fr/node/903880" target="_blank">Bibliothèque numérique du réseau Archirès</a></li>
+		<li class="liLink2"><i></i><a href="https://hal.archives-ouvertes.fr/MC-BRAUP/" target="_blank">Collection des publications en ligne du Bureau de la recherche Architecturale, Urbaine et Paysagère</a></li>
+		<li class="liLink2"><i></i><a href="https://dumas.ccsd.cnrs.fr/" target="_blank">DUMAS base nationale de mémoires universitaires déposés</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://reseau-mirabel.info/" target="_blank">Mir@bel, portail d'accès à des textes intégraux ou des résumés d'articles de revues</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://www.openedition.org/" target="_blank">Portail de ressources électroniques en sciences humaines et sociales</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://bibliotheque-numerique.inha.fr/" target="_blank">Collections numérisées de l'INHA</a></li>
+		<li class="liLink2 new4"><i></i><a href="https://www.base-search.net/Search/Results?q=dccoll%3Aftstarfr&refid=dclink" target="_blank">BASE - Bielefeld Academic Search Engine</a></li>
+		<li class="liLink2 new4"><i></i><a href="http://www.calames.abes.fr/pub/" target="_blank">Calames - Catalogue en ligne des archives et manuscrits de l'enseignement supérieur</a></li>
+		<li class="liLink2 new4"><i></i><a href="http://www.theses.fr/" target="_blank">Theses.fr - moteur de recherche des thèses en préparation et soutenues de France</a></li>
+		
+<!-- Catégorie Droits d'auteur -->
+		<li class="liensCategorie new2">Droits d'auteur</li>
+		<li class="liLink2"><i></i><a href="https://www.culture.gouv.fr/droitsdediffusion/" target="_blank">Diffusion de contenus culturels : quels droits, quelles démarches ?</a></li>
+		<li class="liLink2"><i></i><a href="https://formadoct.doctorat-bretagneloire.fr/friendly.php?s=liste_guides" target="_blank">Les guides Formadoct de l'Université de Bretagne Loire</a></li>
+		<li class="liLink2"><i></i><a href="http://doc-pedagogie.u-bordeaux.fr/" target="_blank">Subpœna : un jeu sérieux sur le plagiat</a></li>
+		
+<!-- Catégorie Données ouvertes -->
+		<li class="liensCategorie new2">Données ouvertes</li>
+		<li class="liLink2"><i></i><a href="https://opendata.bordeaux-metropole.fr/pages/accueil/" target="_blank">L'Atelier Open Data de Bordeaux Métropole</a></li>
+		<li class="liLink2"><i></i><a href="https://www.datalocale.fr/" target="_blank">Ressourcerie datalocale, plateforme de données ouvertes de Gironde</a></li>
+		<li class="liLink2"><i></i><a href="https://www.pigma.org/datanouvelleaquitaine/accueil/" target="_blank">PIGMA, plateforme d'échange de données en Nouvelle-Aquitaine</a></li>
+		<li class="liLink2"><i></i><a href="https://data.culture.gouv.fr/pages/home/" target="_blank">Les bases de données ouvertes du Ministère de la Culture</a></li>
+		<li class="liLink2"><i></i><a href="https://www.data.gouv.fr/fr/" target="_blank">Plateforme ouverte des données publiques françaises</a></li>
+		<li class="liLink2"><i></i><a href="http://fr.dbpedia.org/resource/%C3%89cole_nationale_sup%C3%A9rieure_d'architecture_et_de_paysage_de_Bordeaux" target="_blank">DBpedia FR</a></li>
+		<li class="liLink2"><i></i><a href="http://dbpedia.org/resource/Bordeaux" target="_blank">DBpedia (anglais)</a></li>
+		
+<!-- Catégorie Catalogues de bibliothèques et archives non universitaires -->
+		<li class="liensCategorie">Catalogues de bibliothèques et archives non universitaires</li>
+		<li class="liLink2"><i></i><a href="http://bibliotheque.bordeaux.fr/in/homeInBook.xhtml" target="_blank">Le catalogue des bibliothèques de Bordeaux</a></li>
+		<li class="liLink2"><i></i><a href="https://mediatheques.bordeaux-metropole.fr/" target="_blank">Les médiathèques de Bordeaux Métropole</a></li>
+		<li class="liLink2"><i></i><a href="http://inventaire.aquitaine.fr/" target="_blank">Service du patrimoine et de l’inventaire d’Aquitaine</a></li>
+		<li class="liLink2"><i></i><a href="https://www.bnf.fr/fr" target="_blank">Le catalogue de la Bibliothèque nationale de France</a></li>
+		<li class="liLink2"><i></i><a href="https://gallica.bnf.fr" target="_blank">Gallica, bibliothèque numérique de la Bibliothèque nationale de France et de ses partenaires</a></li>
+		<li class="liLink2"><i></i><a href="http://archives.bordeaux-metropole.fr/n/e-archives/n:1" target="_blank">Archives numérisées de Bordeaux Métropole</a></li>
+		
+<!-- Catégorie Citoyenneté -->
+		<li class="liensCategorie new2">Citoyenneté</li>
+		<li class="liLink2"><i></i><a href="https://www.justice.fr/" target="_blank">Justice.fr, le portail du justiciable</a></li>
+		<li class="liLink2"><i></i><a href="https://www.legifrance.gouv.fr/" target="_blank">Légifrance, le service public de la diffusion du droit</a></li>
+		<li class="liLink2"><i></i><a href="https://www.service-public.fr/" target="_blank">Service-public.fr, le portail unique de renseignement administratif et d'accès aux services en ligne</a></li>
+		
+<!-- Catégorie Numérique -->
+		<li class="liensCategorie new2">Numérique</li>
+		<li class="liLink2"><i></i><a href="https://pix.fr/" target="_blank">Pix - Cultivez vos compétences numériques</a></li>
+		<li class="liLink2"><i></i><a href="https://www.nextinpact.com/news/106135-le-rgpd-explique-ligne-par-ligne-articles-1-a-23.htm" target="_blank">Le RGPD explications détaillées par article</a></li>
+		<li class="liLink2"><i></i><a href="https://www.cnil.fr/fr/comprendre-le-rgpd" target="_blank">Comprendre le RGPD par le CNIL</a></li>
+		<li class="liLink2"><i></i><a href="http://web.archive.org/" target="_blank">Wayback Machine, archives des sites web</a></li>
+		
+<!-- Catégorie Éducation aux médias -->
+		<li class="liensCategorie new2">Éducation aux médias</li>
+		<li class="liLink2"><i></i><a href="https://www.clemi.fr/" target="_blank">CLEMI : le centre pour l'éducation aux médias et à l'information</a></li>
+		<li class="liLink2"><i></i><a href="https://larevuedesmedias.ina.fr/" target="_blank">Revue des médias : le magazine d'analyse des médias de l'INA</a></li>
+		<li class="liLink2"><i></i><a href="https://www.lumni.fr/programme/la-collab-de-l-info" target="_blank">Collab' de l'info : vidéos par LUMNI</a></li>
+		<li class="liLink2"><i></i><a href="https://www.lumni.fr/" target="_blank">LUMNI : l'accès à la culture, au savoir et à la connaissance</a></li>
+		<li class="liLink2"><i></i><a href="https://www.youtube.com/user/datagueule" target="_blank">Data Gueule</a></li>
+		<li class="liLink2"><i></i><a href="https://www.arte.tv/fr/videos/RC-014077/28-minutes/" target="_blank">28 minutes - Info et société par Arte</a></li>
+<!-- Sous-catégorie Fact checkeurs de Education aux médias -->
+		<li class="liensCategorie2 new3">Fact checkeurs :</li>
+		<li class="liLink2"><i></i><a href="https://www.lemonde.fr/les-decodeurs/" target="_blank">Les décodeurs - par Le Monde</a></li>
+		<li class="liLink2"><i></i><a href="https://www.france24.com/fr/stop-infox" target="_blank">Stop l'infox ! par les chaînes du Groupe France Médias Monde</a></li>
+		<li class="liLink2"><i></i><a href="http://www.checknews.fr/" target="_blank">CheckNews.fr - Le service de journalisme à la demande de Libération</a></li>
+	</ul> <!-- fin de la liste contenant les liens utiles-->
+	</div> <!-- fin de la division contenant les liens utiles-->
+</ul> <!-- fin de la grande liste -->
+</div> <!-- fin de la division contenant les liens -->
+
+</body>
+</html>

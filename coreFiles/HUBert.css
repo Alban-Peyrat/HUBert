@@ -1,0 +1,65 @@
+/* Paramètre l'affichage des textes par défaut */
+* {font-family: Helvetica,Arial,sans-serif, sans-serif; color: #000000; font-size: 15px;} 
+
+/* Paramètre le corps de la page */
+body {margin-left: 3%;margin-bottom: 3%; margin-top: 3%; background-color:#FFFFFF;}
+
+/* Classe cachant un élément */
+.hidden {display:none;}
+
+/* Paramétrage du logo et de la zone le contenant */
+#divLogo {position: absolute; top: 15px; left: 15px;}
+#logo {width : 25%;}
+
+/* Paramétrage du nom du logiciel et de la zone le contenant */
+#nomLogiciel {position: absolute; top: 50px; text-align: centre;  margin-left: auto; margin-right: auto; left: 0; right: 0;}
+#nomLogiciel > p {text-align: center;}
+.red {color: firebrick;}
+
+/* Paramétrage des données de dernière mise à jour et la zone les contenant */
+#donneesVersionLogiciel {position: absolute; top: 5px; right: 13px;}
+#dateData {position: relative;}
+
+/* Paramétrage de la division contenant les services */
+#divServices {position: absolute; top: 215px; margin-left:50px;}
+
+
+/* Paramétrage des liens */
+
+/* Paramètrage de  l'affichage des listes */
+.listeNonNum {list-style-type : none; margin-top: 40px;}
+/* Paramétrage des liens de services */
+.liLink, .liToggle, .liToggled {margin: 8px 0 8px 0;} 
+.liLink, .liLink > *, .liToggle, .liToggle > *{color: darkblue; font-size: 24px; text-decoration: none;}
+.liToggled, .liToggled > * {color: cyan; font-size: 24px; text-decoration: none;}
+/* Paramétrage des liens utiles */
+.liLink2, .liLink2 > *{color: darkblue; font-size: 18px; text-decoration: none;}
+/* Changement de couleur du texte lorsque la souris survole l'élément */
+.liLink:hover, .liLink:hover > *, .liToggle:hover, .liToggle:hover > *, .liLink2:hover, .liLink2:hover > * {color: cyan;}
+/* Paramétrage des catégories et sous-catégories */
+.liensCategorie {color: firebrick; font-weight: bold; font-size: 20px; margin:12px 0 5px 0; }
+.liensCategorie2 {color: #000000; font-weight: bold; font-size: 19px; text-indent: 17px; margin: 3px 0 3px 0;}
+/* Paramétrage des images intégrées aux liens */
+.imgListe {max-height: 30px; vertical-align: -5px; margin-right: 5px;}
+.imgListeCarre {max-height: 36px; vertical-align: -8px; margin-right: 5px;}
+.liLink:hover  .imgListe, .liToggle:hover  .imgListe, .liLink2:hover  .imgListe, .liLink:hover  .imgListeCarre, .liToggle:hover  .imgListeCarre, .liLink2:hover  .imgListeCarre {opacity: 0.75;}
+
+/* Paramétrage de la puce des listes à puces */
+i {padding:2px;}
+
+/* Paramétrage des quatre classes de "Nouveau!" */
+.new::before {content: "NOUVEAU !"; color:firebrick;margin-right:5px;}
+.new {margin-left:-137px;!important}
+.new2::before {content: "NOUVEAU !"; color:cyan;margin-right:5px;}
+.new2 {margin-left:-116px;!important}
+.new3::before {content: "NOUVEAU !"; color:firebrick;margin-right:5px;}
+.new3 {margin-left:-113px;!important}
+.new4::before {content: "NOUVEAU !"; color:firebrick;margin-right:5px;}
+.new4 {margin-left:-104px;!important}
+
+/* Permet d'afficher un pointeur sur la découverte d'un document aléatoire (qui n'y est pas par défaut) */
+#randomBook:hover {cursor: pointer;}
+
+/* Paramétrage de la division contenant les liens utiles */
+#liensUtilesListe {margin-top: -30px;}
+#liensUtiles:hover {cursor: pointer;}
